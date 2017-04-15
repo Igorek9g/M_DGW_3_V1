@@ -17,6 +17,8 @@
 #include <time.h>
 #include <random>
 #include <iostream>
+#include <loader.hh>
+//#include <loader.cc>
 
 class G4ParticleGun;
 class G4Event;
@@ -28,11 +30,12 @@ public:
     mast get = boxPos;
 };*/
 
-class PrimaryGen : public G4VUserPrimaryGeneratorAction, public DetGeometry
+class PrimaryGen : public G4VUserPrimaryGeneratorAction
 {
 private:
     G4ParticleGun*  gun;
 public:
+    DetGeometry* B;
     PrimaryGen();
     virtual ~PrimaryGen();
     virtual void GeneratePrimaries(G4Event*);

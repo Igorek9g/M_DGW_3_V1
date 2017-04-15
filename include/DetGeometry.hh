@@ -66,7 +66,7 @@ private:
     G4LogicalVolume*            logicWorld;
     virtual G4VPhysicalVolume*  Construct();
     G4VPhysicalVolume*          physWorld;
-protected:
+public:
     G4double                    boxSize;
     G4ThreeVector*              boxPos;
     G4double                    sphereRad;

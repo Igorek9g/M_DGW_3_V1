@@ -36,7 +36,7 @@
 
 class DetGeometry;
 class G4Loader{
-private:
+public:
 
 #ifdef G4MULTITHREADED
     G4MTRunManager* runManager;
@@ -50,6 +50,7 @@ private:
 public:
     G4Loader(int argc, char** argv);
     ~G4Loader();
+    //G4Loader();
 
 };
 
