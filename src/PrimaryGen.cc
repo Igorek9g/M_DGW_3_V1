@@ -23,11 +23,20 @@ PrimaryGen::~PrimaryGen()
 
 void PrimaryGen::GeneratePrimaries(G4Event* anEvent)
 {
-    DetGeometry get;
-    G4ThreeVector* x= ;
-    double RX,RY,RZ;
-    getX();
-    RX=getX(boxPos);
+    //DetGeometry get;
+    double BS=150;
+    //G4Loader B();
+    //DetGeometry B()= new DetGeometry();
+    //B->detGeom.boxPos;
+    //B().detGeom->boxPos;
+  /*  G4ThreeVector* C= B->boxPos;
+    BS = B->boxSize;
+    //BS = B.detGeom->boxSize;
+    double RX=C -> getX();
+    double RY=C -> getY();
+    double RZ=C -> getZ();*/
+    //get.boxPos;
+    //G4ThreeVector* C= get.boxPos;
 
 
     srand(time(NULL));
@@ -75,7 +84,7 @@ void PrimaryGen::GeneratePrimaries(G4Event* anEvent)
     //return 0;
 int A=0;
     double x,y,z;
-while (A<500)
+while (A<5)
     {
     double rndG = rand() % 100;
     rndG = rndG / 100;
@@ -91,20 +100,23 @@ while (A<500)
     }
 
 
+    BS=150;
     gun->SetParticleDefinition(G4Electron::ElectronDefinition());
     gun->SetParticleEnergy(E * MeV);
 
-        x=150 * (2 * G4UniformRand() - 1);
-        y=150 * (2 * G4UniformRand() - 1);
-        z=150 * (2 * G4UniformRand() - 1);
+        x=BS * (2 * G4UniformRand() - 1);
+        y=BS * (2 * G4UniformRand() - 1);
+        z=BS * (2 * G4UniformRand() - 1);
         while (sqrt(x*x+y*y+z*z)>=150)
         {
-            x=150 * (2 * G4UniformRand() - 1);
-            y=150 * (2 * G4UniformRand() - 1);
-            z=150 * (2 * G4UniformRand() - 1);
-            G4cout<<"X= "<<x<<" Y= "<<y<<" Z= "<<z<<"\tR= "<<sqrt(x*x+y*y*z*z)<<"\n";
+            x=BS * (2 * G4UniformRand() - 1);
+            y=BS * (2 * G4UniformRand() - 1);
+            z=BS * (2 * G4UniformRand() - 1);
+            //G4cout<<"X= "<<x<<" Y= "<<y<<" Z= "<<z<<"\tR= "<<sqrt(x*x+y*y*z*z)<<"\n";
         }
-        gun->SetParticlePosition(get.boxPos);
+        //gun->SetParticlePosition(G4ThreeVector(RX*mm,RY*mm,RZ*mm));
+        //G4cout<<"X= "<<RX<<" Y= "<<RY<<" Z= "<<RZ<<"\n";
+        gun->SetParticlePosition(G4ThreeVector(10*mm,10*mm,10*mm));
     gun->SetParticlePosition(G4ThreeVector(x * mm, y - 300 * mm, z + 200 * mm));
     gun->SetParticleMomentumDirection(
             G4ThreeVector(2 * G4UniformRand() - 1, 2 * G4UniformRand() - 1, 2 * G4UniformRand() - 1));
